@@ -5,17 +5,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Num2 {
-    public static String solution(String str){
-        char[] cArr = str.toCharArray();
-        for (int i = 0; i < cArr.length; i++) {
-            if('a'<=cArr[i]&&cArr[i]<='z'){
-                cArr[i] = Character.toUpperCase(cArr[i]);
+    public static String solution(String str) {
+        String answer = "";
+        for (char c : str.toCharArray()) {
+            if (Character.isLowerCase(c)) {
+                answer += Character.toUpperCase(c);
                 continue;
             }
-            cArr[i] = Character.toLowerCase(cArr[i]);
+            answer += Character.toLowerCase(c);
         }
-        return String.valueOf(cArr);
+        return answer;
     }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
