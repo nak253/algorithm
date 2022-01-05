@@ -4,14 +4,6 @@ import java.io.InputStreamReader;
 
 public class Num1079 {
     enum ValueOfResistance {black, brown, red, orange, yellow, green, blue, violet, grey, white}
-    enum LastResistance {
-        black(1), brown(10), red(100), orange(1000),
-        yellow(10000), green(100000), blue(1000000), violet(10000000),
-        grey(100000000), white(1000000000);
-        LastResistance(long value){ this.value = value; }
-        private final long value;
-        public long getValue() {return value ;}
-    }
 
     public static void main(String args[]) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,9 +15,9 @@ public class Num1079 {
 
         ValueOfResistance firstColor = ValueOfResistance.valueOf(stArr[0]);
         ValueOfResistance secondColor = ValueOfResistance.valueOf(stArr[1]);
-        LastResistance thirdColor = LastResistance.valueOf(stArr[2]);
+        ValueOfResistance thirdColor = ValueOfResistance.valueOf(stArr[2]);
 
         String strNum = String.valueOf(firstColor.ordinal())+String.valueOf(secondColor.ordinal());
-        System.out.println(Integer.parseInt(strNum)*thirdColor.getValue());
+        System.out.println(Integer.parseInt(strNum)*(long)Math.pow(10,thirdColor.ordinal()));
     }
 }
