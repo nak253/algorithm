@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Num1079 {
+public class Num1076 {
     enum ValueOfResistance {black, brown, red, orange, yellow, green, blue, violet, grey, white}
 
     public static void main(String args[]) throws IOException {
