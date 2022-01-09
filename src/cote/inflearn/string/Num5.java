@@ -25,6 +25,8 @@ public class Num5 {
                         char tmp = cArr[i];
                         cArr[i] = cArr[j];
                         cArr[j] = tmp;
+                        count = j-1;
+                        break;
                     }
                 }
             }
