@@ -3,7 +3,6 @@ package cote.inflearn.string;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
 
 public class Num5 {
     public static void main(String[] args) throws IOException {
@@ -30,9 +29,7 @@ public class Num5 {
                     }
                 }
             }
-
         }
-
         return new String(cArr);
     }
 
