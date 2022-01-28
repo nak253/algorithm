@@ -14,28 +14,21 @@ public class Num11 {
     }
 
     private static String solution(String str) {
-        char[] cArr = str.toCharArray();
+        char[] cArr = (str+" ").toCharArray();
         StringBuilder sb = new StringBuilder(str.length());
 
         int count = 1;
-        char c =' ';
 
-        for (int i = 0; i < cArr.length; i++) {
-            if (c == cArr[i]) {
+        for (int i = 0; i < cArr.length-1; i++) {
+            if (cArr[i] == cArr[i+1]) {
                 count++;
                 continue;
             }
-
+            sb.append(cArr[i]);
             if (1 < count) {
                 sb.append(count);
                 count = 1;
             }
-            c = cArr[i];
-            sb.append(cArr[i]);
-        }
-
-        if (1 < count) {
-            sb.append(count);
         }
         return sb.toString();
     }
