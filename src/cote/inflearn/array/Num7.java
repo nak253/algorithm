@@ -16,7 +16,6 @@ public class Num7 {
                 continue;
             }
             count = 0;
-            score += count;
         }
         System.out.println(score);
     }
