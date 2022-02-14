@@ -13,16 +13,14 @@ public class Num3 {
             arr[i] = s.nextInt();
         }
 
-        int[] answer = new int[size-day+1];
-        for (int i = 0; i < answer.length; i++) {
-            for (int j = 0; j < day; j++) {
-                answer[i] += arr[i+j];
-            }
-        }
         int max = 0;
-        for (int i = 0; i < answer.length; i++) {
-            if (max < answer[i]) {
-                max = answer[i];
+        for (int i = 0; i < size - (day - 1); i++) {
+            int sum = 0;
+            for (int j = 0; j < day; j++) {
+                sum += arr[i + j];
+            }
+            if (max < sum) {
+                max = sum;
             }
         }
         System.out.println(max);
