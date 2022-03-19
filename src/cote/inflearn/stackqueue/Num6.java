@@ -12,14 +12,14 @@ public class Num6 {
 
         Queue<Integer> q = new LinkedList<>();
         for (int i = 0; i < size; i++) {
-            q.add(i + 1);
+            q.offer(i + 1);
         }
 
         while (q.size() != 1) {
             for (int i = 0; i < num - 1; i++) {
-                q.add(q.poll());
+                q.offer(q.poll());
             }
-            q.remove();
+            q.poll();
         }
         System.out.println(q.poll());
     }
