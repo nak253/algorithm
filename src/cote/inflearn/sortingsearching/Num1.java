@@ -1,6 +1,5 @@
 package cote.inflearn.sortingsearching;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Num1 {
@@ -11,10 +10,26 @@ public class Num1 {
         for (int i = 0; i < size; i++) {
             numbers[i] = scanner.nextInt();
         }
-        Arrays.sort(numbers);
 
-        for (int number: numbers) {
-            System.out.print(number+" ");
+        for (int number : sort(numbers)) {
+            System.out.print(number + " ");
         }
+    }
+
+    private static int[] sort(int[] numbers) {
+        int indexOfLowest = 0;
+        int tmp = 0;
+        for (int i = 0; i < numbers.length - 1; i++) {
+            indexOfLowest = i;
+            for (int index = i + 1; index < numbers.length; index++){
+                if (numbers[index] < numbers[indexOfLowest]) {
+                    indexOfLowest = index;
+                }
+            }
+            tmp = numbers[i];
+            numbers[i] = numbers[indexOfLowest];
+            numbers[indexOfLowest] = tmp;
+        }
+        return numbers;
     }
 }
