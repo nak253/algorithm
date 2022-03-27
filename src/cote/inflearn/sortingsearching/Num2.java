@@ -16,17 +16,19 @@ public class Num2 {
     }
 
     private static int[] solution(int[] numbers) {
-        boolean swap = true;
         int tmp = 0;
-        while (swap) {
-            swap = false;
-            for (int i = 0; i < numbers.length-1; i++) {
-                if (numbers[i+1] < numbers[i]) {
-                    tmp = numbers[i];
-                    numbers[i] = numbers[i+1];
-                    numbers[i+1] = tmp;
+        for (int i = 0; i < numbers.length-1; i++) {
+            boolean swap = false;
+            for (int index2 = 0; index2 < numbers.length-1-i; index2++) {
+                if (numbers[index2+1] < numbers[index2]) {
+                    tmp = numbers[index2];
+                    numbers[index2] = numbers[index2+1];
+                    numbers[index2+1] = tmp;
                     swap = true;
                 }
+            }
+            if (!swap) {
+                break;
             }
         }
         return numbers;
