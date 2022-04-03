@@ -1,7 +1,6 @@
 package cote.inflearn.sortingsearching;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 public class Num4 {
     public static void main(String[] args) {
@@ -18,21 +17,24 @@ public class Num4 {
     }
 
     private static int[] solution(int s, int n, int[] arr) {
-        Stack<Integer> stack = new Stack<>();
         int[] result = new int[s];
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i+1; j < arr.length ; j++) {
-                if (arr[i] == arr[j]) {
-                    break;
-                }
-                if (j == arr.length-1) {
-                    stack.push(arr[i]);
+        for (int number : arr) {
+            int pos = -1;
+            for (int i = 0; i < result.length; i++) {
+                if (number == result[i]) {
+                    pos = i;
                 }
             }
-        }
-        stack.push(arr[n-1]);
-        for (int i = 0; i < s; i++) {
-            result[i] = stack.pop();
+            if (pos == -1) { //캐시 미스의 경우
+                for (int i = result.length - 1; 1 <= i; i--) {
+                    result[i] = result[i - 1];
+                }
+            } else {
+                for (int j = pos; 1 <= j; j--) {
+                    result[j] = result[j - 1];
+                }
+            }
+            result[0] = number;
         }
         return result;
     }
